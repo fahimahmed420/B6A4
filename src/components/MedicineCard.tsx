@@ -21,28 +21,18 @@ export default function MedicineCard({ medicine }: { medicine: Medicine }) {
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (!user) {
-      toast.error("Please login to add items to cart");
-      return;
-    }
-    if (user.role !== "CUSTOMER") {
-      toast.error("Only customers can add items to cart");
-      return;
-    }
+    if (!user) { toast.error("Please login to add items to cart"); return; }
+    if (user.role !== "CUSTOMER") { toast.error("Only customers can add items to cart"); return; }
     addItem({ id: medicine.id, name: medicine.name, price: medicine.price, image: medicine.image, stock: medicine.stock });
     toast.success(`${medicine.name} added to cart`);
   };
 
   return (
-    <Link href={`/shop/${medicine.id}`} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group border border-gray-100">
+    <Link href={`/shop/${medicine.id}`} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all overflow-hidden group border border-gray-200">
       <div className="relative h-44 bg-emerald-50 flex items-center justify-center overflow-hidden">
         {medicine.image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={medicine.image}
-            alt={medicine.name}
-            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-          />
+          <img src={medicine.image} alt={medicine.name} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
         ) : (
           <div className="text-6xl">💊</div>
         )}
@@ -53,20 +43,22 @@ export default function MedicineCard({ medicine }: { medicine: Medicine }) {
         )}
       </div>
       <div className="p-4">
-        <span className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded-full">{medicine.category.name}</span>
-        <h3 className="font-semibold text-gray-900 mt-2 text-sm line-clamp-2">{medicine.name}</h3>
-        <p className="text-xs text-gray-500 mt-1">{medicine.manufacturer}</p>
+        <span className="text-xs text-emerald-700 font-semibold bg-emerald-100 px-2 py-0.5 rounded-full">{medicine.category.name}</span>
+        <h3 className="font-bold text-gray-900 mt-2 text-sm line-clamp-2 leading-snug">{medicine.name}</h3>
+        <p className="text-xs text-gray-600 mt-1 font-medium">{medicine.manufacturer}</p>
         <div className="flex items-center justify-between mt-3">
-          <span className="text-emerald-700 font-bold text-lg">${medicine.price.toFixed(2)}</span>
+          <span className="text-emerald-700 font-extrabold text-lg">${medicine.price.toFixed(2)}</span>
           <button
             onClick={handleAddToCart}
             disabled={medicine.stock === 0}
-            className="bg-emerald-600 text-white p-2 rounded-full hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="bg-emerald-600 text-white p-2 rounded-full hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
           >
             <ShoppingCart size={16} />
           </button>
         </div>
-        <p className="text-xs text-gray-400 mt-1">Stock: {medicine.stock}</p>
+        <p className="text-xs font-medium mt-1" style={{ color: medicine.stock < 10 ? '#dc2626' : '#16a34a' }}>
+          {medicine.stock > 0 ? `${medicine.stock} in stock` : "Out of stock"}
+        </p>
       </div>
     </Link>
   );

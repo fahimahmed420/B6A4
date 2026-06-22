@@ -53,8 +53,8 @@ export default function CategoriesSection() {
               className={`border rounded-xl p-5 text-center transition-all cursor-pointer ${colors[i % colors.length]}`}
             >
               <div className="text-3xl mb-2">{categoryIcons[cat.name] || "💊"}</div>
-              <div className="font-semibold text-gray-800 text-sm">{cat.name}</div>
-              <div className="text-xs text-gray-500 mt-1">{cat._count.medicines} items</div>
+              <div className="font-bold text-gray-900 text-sm">{cat.name}</div>
+              <div className="text-xs text-gray-600 font-medium mt-1">{cat._count.medicines} items</div>
             </Link>
           ))}
           {categories.length === 0 && Array.from({ length: 8 }).map((_, i) => (
