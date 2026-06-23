@@ -31,7 +31,7 @@ export default function FeaturedMedicines() {
         <div className="flex items-center justify-between mb-10">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-1">Featured Medicines</h2>
-            <p className="text-gray-500">Top products from our verified sellers</p>
+            <p className="text-gray-700 font-medium">Top products from our verified sellers</p>
           </div>
           <Link href="/shop" className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition-colors font-medium">
             View All

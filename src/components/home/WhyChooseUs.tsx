@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Why Choose MediStore?</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">We are committed to providing you with the best online medicine shopping experience.</p>
+          <p className="text-gray-700 max-w-xl mx-auto font-medium">We are committed to providing you with the best online medicine shopping experience.</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {features.map((f) => (

@@ -21,9 +21,9 @@ export default function Navbar() {
     <nav className="bg-emerald-600 text-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2 text-xl font-bold">
+          <Link href="/" className="flex items-center gap-2 text-xl font-extrabold tracking-wide">
             <span className="text-2xl">💊</span>
-            <span>MediStore</span>
+            <span className="text-white drop-shadow">MediStore</span>
           </Link>
 
           {/* Desktop nav */}
